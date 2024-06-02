@@ -13,8 +13,6 @@ test:
 
 all: install lint format test
 
-start_model:
-	sh -c ./rocket-3b.Q5_K_M.llamafile
 
 run_app:
 	streamlit run src/movie_chatbot/app.py

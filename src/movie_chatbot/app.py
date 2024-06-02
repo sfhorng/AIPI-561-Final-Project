@@ -1,5 +1,6 @@
 import streamlit as st
 from llama_index.llms.llamafile import Llamafile
+import subprocess
 
 # The implementation is largely based off of
 # https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps
@@ -20,6 +21,7 @@ def initialize():
 
 @st.cache_resource
 def load_model():
+    subprocess.Popen(["sh", "./rocket-3b.Q5_K_M.llamafile"])
     llm = Llamafile(request_timeout=60)
     return llm
 
