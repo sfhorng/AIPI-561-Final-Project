@@ -1,12 +1,27 @@
 import streamlit as st
 from llama_index.llms.llamafile import Llamafile
 
-st.title("Movie Chatbot")
 
-prompt = st.chat_input("Say something")
-if prompt:
-    st.write(f"User has sent the following prompt: {prompt}")
+@st.cache_resource
+def load_model():
+    llm = Llamafile(request_timeout=60)
+    return llm
 
-llm = Llamafile(temperature=0, seed=0)
-resp = llm.complete("Who is Octavia Butler?")
-st.write(resp)
+
+def retrieve_answer_and_output(model, prompt):
+    resp = model.complete(prompt)
+    st.markdown(resp)
+
+
+def run():
+    st.title("Movie Chatbot")
+
+    model = load_model()
+
+    prompt = st.chat_input("What would you like to know?")
+    if prompt:
+        retrieve_answer_and_output(model, prompt)
+
+
+if __name__ == "__main__":
+    run()
