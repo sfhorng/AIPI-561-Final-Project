@@ -14,7 +14,7 @@ test:
 all: install lint format test
 
 start_model:
-	sh -c ./TinyLlama-1.1B-Chat-v1.0.F16.llamafile
+	sh -c ./rocket-3b.Q5_K_M.llamafile
 
 run_app:
 	streamlit run src/movie_chatbot/app.py
