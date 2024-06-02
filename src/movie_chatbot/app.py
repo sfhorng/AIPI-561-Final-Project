@@ -22,7 +22,7 @@ def initialize():
 @st.cache_resource
 def load_model():
     subprocess.Popen(["sh", "./rocket-3b.Q5_K_M.llamafile"])
-    llm = Llamafile(request_timeout=60)
+    llm = Llamafile(additional_kwargs={"n_predict": 100})
     return llm
 
 
@@ -43,10 +43,7 @@ def chat(model):
 
 
 def retrieve_from_model(model, prompt):
-    try:
-        resp = model.complete(prompt)
-    except Exception:  # pylint: disable=broad-exception-caught
-        resp = "I'm sorry. The query took too long to run. Please try another query instead."
+    resp = model.complete(prompt)
     return resp
 
 
