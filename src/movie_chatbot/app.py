@@ -1,5 +1,6 @@
 import streamlit as st
 from llama_index.llms.llamafile import Llamafile
+from llama_index.core.llms import ChatMessage
 import subprocess
 
 # The implementation is largely based off of
@@ -34,17 +35,30 @@ def chat(model):
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
 
-        response = retrieve_from_model(model, prompt)
+        response_stream = retrieve_from_model(model)
         # Display assistant response in chat message container
         with st.chat_message("assistant"):
-            st.markdown(response)
+            full_string_response = st.write_stream(response_stream)
         # Add assistant response to chat history
-        st.session_state.messages.append({"role": "assistant", "content": response})
+        st.session_state.messages.append(
+            {"role": "assistant", "content": full_string_response}
+        )
 
 
-def retrieve_from_model(model, prompt):
-    resp = model.complete(prompt)
-    return resp
+def retrieve_from_model(model):
+    # ChatMessage: https://github.com/run-llama/llama_index/blob/4d2e8dbdc202eb58b3dc2e34b8da1bf7343f4a01/llama-index-core/llama_index/core/base/llms/types.py#L29
+    messages = [
+        ChatMessage(
+            role=m["role"],
+            content=m["content"],
+        )
+        for m in st.session_state.messages
+    ]
+    # stream_chat: https://docs.llamaindex.ai/en/stable/examples/llm/llamafile/
+    model_response_stream = model.stream_chat(messages)
+    for response in model_response_stream:
+        # Get next chunk
+        yield response.delta
 
 
 def run():
