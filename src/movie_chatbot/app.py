@@ -22,7 +22,7 @@ def initialize():
 
 @st.cache_resource
 def load_model():
-    subprocess.Popen(["sh", "./rocket-3b.Q5_K_M.llamafile"])
+    subprocess.Popen(["sh", "./TinyLlama-1.1B-Chat-v1.0.F16.llamafile"])
     llm = Llamafile(additional_kwargs={"n_predict": 100})
     return llm
 
