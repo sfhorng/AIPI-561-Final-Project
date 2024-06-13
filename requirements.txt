@@ -5,3 +5,4 @@ pytest-cov == 5.0.0
 streamlit == 1.35.0
 llama-index == 0.10.42
 llama-index-llms-llamafile == 0.1.2
+llama-index-embeddings-huggingface == 0.2.1
