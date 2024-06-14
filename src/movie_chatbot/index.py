@@ -1,9 +1,16 @@
-"""Create Document objects from movie data that will be used 
-as part of the index in app.py"""
+"""Create index from Document objects from movie data
+for the Streamlit app."""
 
 import json
 import random
-from llama_index.core import Document
+from llama_index.core import (
+    Document,
+    VectorStoreIndex,
+    StorageContext,
+    load_index_from_storage,
+)
+
+VECTOR_STORE_DIR = "vector_store"
 
 
 def retrieve_documents():
@@ -85,3 +92,32 @@ def retrieve_documents():
         outfile.write(json_object)
         print("Wrote all titles with documents to titles_in_vector_store.json")
     return documents
+
+
+def create_index(embed_model):
+    """Create and store index for later use.
+    Resource: https://docs.llamaindex.ai/en/stable/module_guides/indexing/vector_store_index/
+    """
+    # Create documents from data folder
+    documents = retrieve_documents()
+    # Create index from documents
+    index = VectorStoreIndex.from_documents(
+        documents,
+        embed_model=embed_model,
+    )
+    # Save to disk so that it can be retrieved later
+    index.storage_context.persist(persist_dir=VECTOR_STORE_DIR)
+    return index
+
+
+def load_index(embed_model):
+    """Load index from saved file.
+    Resources:
+    - Storage Context: https://docs.llamaindex.ai/en/latest/api_reference/storage/storage_context/
+    - Storing and retrieving index: https://docs.llamaindex.ai/en/stable/understanding/storing/storing/
+    """
+    # Rebuild storage context
+    storage_context = StorageContext.from_defaults(persist_dir=VECTOR_STORE_DIR)
+    # Load the saved index from disk
+    index = load_index_from_storage(storage_context, embed_model=embed_model)
+    return index

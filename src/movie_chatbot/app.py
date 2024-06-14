@@ -8,15 +8,10 @@ from llama_index.llms.llamafile import Llamafile
 from llama_index.embeddings.huggingface import (
     HuggingFaceEmbedding,
 )  # pylint: disable=import-error, no-name-in-module
-from llama_index.core import (
-    load_index_from_storage,
-    StorageContext,
-    Settings,
-    # ServiceContext, uncomment to create your own index
-    # VectorStoreIndex, uncomment to create your own index
-)
+from llama_index.core import Settings
 
-# from document import retrieve_documents # uncomment to create your own index
+# from index import create_index # uncomment to create your own index
+from index import load_index  # pylint: disable=import-error
 
 
 def initialize():
@@ -43,10 +38,6 @@ def load():
     - Llamafile class: https://github.com/run-llama/llama_index/blob/1d6c8bfc1517ea096527f7977a5d1f47d75da71d/llama-index-integrations/llms/llama-index-llms-llamafile/llama_index/llms/llamafile/base.py#L29
     - Embeddings from HuggingFace: https://docs.llamaindex.ai/en/stable/examples/embeddings/huggingface/
     - Using Settings: https://docs.llamaindex.ai/en/stable/module_guides/supporting_modules/service_context_migration/
-    - Creating documents: https://docs.llamaindex.ai/en/stable/module_guides/loading/documents_and_nodes/usage_documents/
-    - Creating index with VectorStoreIndex: https://docs.llamaindex.ai/en/stable/module_guides/indexing/vector_store_index/
-    - Storage Context: https://docs.llamaindex.ai/en/latest/api_reference/storage/storage_context/
-    - Storing and retrieving index: https://docs.llamaindex.ai/en/stable/understanding/storing/storing/
     - Chat engine with context mode: https://docs.llamaindex.ai/en/stable/examples/chat_engine/chat_engine_context/
     """
     # Start llamafile
@@ -57,21 +48,11 @@ def load():
     Settings.llm = llm
     Settings.embed_model = embed_model
 
-    vector_store_index_dir = "vector_store"
-    ### Please uncomment this if you would like to create your own index
-    # Create documents from data folder
-    # documents = retrieve_documents()
-    # Create index from documents
-    # index = VectorStoreIndex.from_documents(
-    #     documents, embed_model=embed_model,
-    # )
-    # Save to disk so that it can be retrieved later
-    # index.storage_context.persist(persist_dir=vector_store_index_dir)
+    ### Please uncomment this and comment out line 54
+    # if you would like to create your own index
+    # index = create_index(embed_model)
 
-    # Rebuild storage context
-    storage_context = StorageContext.from_defaults(persist_dir=vector_store_index_dir)
-    # Load the saved index from disk
-    index = load_index_from_storage(storage_context, embed_model=embed_model)
+    index = load_index(embed_model)
     # Create chat engine from index using the 'context' mode
     chat_engine = index.as_chat_engine(chat_mode="context", llm=llm)
     return chat_engine
