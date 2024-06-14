@@ -9,7 +9,7 @@ lint:
 	pylint --disable=R,C src/movie_chatbot tests
 
 test:
-	python -m pytest -vv --cov=src/movie_chatbot tests
+	python -m pytest -vv -s --cov=src/movie_chatbot tests
 
 all: install lint format test
 
