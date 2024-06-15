@@ -2,6 +2,7 @@
 created index based on a sample dataset of movies is accurate.
 The sample dataset is pulled directly from the datasets for each
 decade."""
+
 import os
 import json
 import pytest
@@ -13,8 +14,13 @@ from llama_index.core import (
     VectorStoreIndex,
 )
 
-TEST_DATASET_FILENAME = "tests/dataset.json"
 os.environ["IS_TESTING"] = "True"  # For mocking LLM
+TEST_DATASET_FILENAME = "tests/dataset.json"
+MISPELLED_KEYWORD_TO_TITLE = {
+    "xman": "X-Men",
+    "matrex resurrections": "The Matrix Resurrections",
+    "the terminater dark fate": "Terminator: Dark Fate",
+}
 
 
 @pytest.fixture(scope="session", name="movie_info_dict")
@@ -43,11 +49,23 @@ def fixture_chat_engine():
 
 
 @pytest.mark.parametrize(
-    "movie", ["The Kleptomaniac", "Antony and Cleopatra", "The Lost Battalion"]
+    "movie",
+    [
+        "The Kleptomaniac",
+        "Antony and Cleopatra",
+        "The Lost Battalion",
+        "The Cloud Dodger",
+        "The Terminator",
+        "Terminator: Dark Fate",
+        "The Matrix",
+        "The Matrix Resurrections",
+        "X-Men",
+        "X2: X-Men United",
+    ],
 )
 def test_retrieval(chat_engine, movie_info_dict, movie):
     """Verify whether the output of the model given an input with
-    the title represented in the index provides the correct contex.
+    the title represented in the index provides the correct context.
     """
     user_input = f"Give me a summary of the details of the movie titled {movie}."
     # LlamaIndex returns a response object that contains
@@ -60,4 +78,34 @@ def test_retrieval(chat_engine, movie_info_dict, movie):
     # Check context retrieved for movie is the same as the one from file
     context_for_top_title = top_retrieved_source_node.text
     actual_context_for_title = movie_info_dict[movie]["extract"]
+    assert context_for_top_title == actual_context_for_title
+
+
+@pytest.mark.parametrize(
+    "misspelled_movie",
+    [
+        "xman",
+        "matrex resurrections",
+        "the terminater dark fate",
+    ],
+)
+def test_retrieval_misspelled(chat_engine, movie_info_dict, misspelled_movie):
+    """Verify whether the output of the model given an slightly
+    misspelled input for a title represented in the index
+    provides the correct context.
+    """
+    user_input = (
+        f"Give me a summary of the details of the movie titled {misspelled_movie}."
+    )
+    # LlamaIndex returns a response object that contains
+    # both the output string and retrieved nodes
+    response_object = chat_engine.chat(user_input)
+    # Check top source node is for the one closest to misspelled_movie
+    top_retrieved_source_node = response_object.source_nodes[0]
+    top_retrieved_title = top_retrieved_source_node.metadata["title"]
+    correct_spelling_movie = MISPELLED_KEYWORD_TO_TITLE[misspelled_movie]
+    assert top_retrieved_title == correct_spelling_movie
+    # Check context retrieved for movie is the same as the one from file
+    context_for_top_title = top_retrieved_source_node.text
+    actual_context_for_title = movie_info_dict[correct_spelling_movie]["extract"]
     assert context_for_top_title == actual_context_for_title

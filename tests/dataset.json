@@ -43,5 +43,145 @@
         "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/The-Lost-Battalion-1919-cover.jpg/320px-The-Lost-Battalion-1919-cover.jpg",
         "thumbnail_width": 320,
         "thumbnail_height": 290
+      },
+      {
+        "title": "The Cloud Dodger",
+        "year": 1928,
+        "cast": [
+          "Al Wilson",
+          "Gloria Grey"
+        ],
+        "genres": [
+          "Comedy",
+          "Drama",
+          "Silent"
+        ],
+        "href": "The_Cloud_Dodger",
+        "extract": "The Cloud Dodger is a 1928 silent drama film directed by Bruce M. Mitchell and starring real life aviator Al Wilson. The action film was produced and distributed by Universal Pictures.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/The_Cloud_Dodger.jpg/320px-The_Cloud_Dodger.jpg",
+        "thumbnail_width": 320,
+        "thumbnail_height": 215
+      },
+      {
+        "title": "The Terminator",
+        "year": 1984,
+        "cast": [
+          "Arnold Schwarzenegger",
+          "Linda Hamilton",
+          "Michael Biehn",
+          "Lance Henriksen",
+          "Paul Winfield",
+          "Earl Boen"
+        ],
+        "genres": [
+          "Science Fiction",
+          "Action"
+        ],
+        "href": "The_Terminator",
+        "extract": "The Terminator is a 1984 American science fiction action film directed by James Cameron. It stars Arnold Schwarzenegger as the Terminator, a cyborg assassin sent back in time from 2029 to 1984 to kill Sarah Connor, whose unborn son will one day save mankind from extinction by Skynet, a hostile artificial intelligence in a post-apocalyptic future. Kyle Reese is a soldier sent back in time to protect Sarah. The screenplay is credited to Cameron and producer Gale Anne Hurd, while co-writer William Wisher Jr. received an \"additional dialogue\" credit.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/7/70/Terminator1984movieposter.jpg",
+        "thumbnail_width": 258,
+        "thumbnail_height": 385
+      },
+      {
+        "title": "The Matrix",
+        "year": 1999,
+        "cast": [
+          "Keanu Reeves",
+          "Laurence Fishburne",
+          "Carrie-Anne Moss",
+          "Hugo Weaving",
+          "Joe Pantoliano"
+        ],
+        "genres": [
+          "Science Fiction",
+          "Action"
+        ],
+        "href": "The_Matrix",
+        "extract": "The Matrix is a 1999 science fiction action film written and directed by the Wachowskis. It is the first installment in the Matrix film series, starring Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving, and Joe Pantoliano, and depicts a dystopian future in which humanity is unknowingly trapped inside the Matrix, a simulated reality that intelligent machines have created to distract humans while using their bodies as an energy source. When computer programmer Thomas Anderson, under the hacker alias \"Neo\", uncovers the truth, he joins a rebellion against the machines along with other people who have been freed from the Matrix.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg",
+        "thumbnail_width": 268,
+        "thumbnail_height": 370
+      },
+      {
+        "title": "X-Men",
+        "year": 2000,
+        "cast": [
+          "Hugh Jackman",
+          "Patrick Stewart",
+          "Ian McKellen"
+        ],
+        "genres": [
+          "Superhero"
+        ],
+        "href": "X-Men_(film)",
+        "extract": "X-Men is a 2000 American superhero film directed by Bryan Singer from a screenplay by David Hayter and a story by Singer and Tom DeSanto, based on the Marvel Comics superhero team of the same name created by Stan Lee and Jack Kirby. The film features an ensemble cast consisting of Patrick Stewart, Hugh Jackman, Ian McKellen, Halle Berry, Famke Janssen, James Marsden, Bruce Davison, Rebecca Romijn, Ray Park, Tyler Mane, and Anna Paquin. The film depicts a world where an unknown proportion of people are mutants, whose possession of superhuman powers makes them distrusted by normal humans. It focuses on mutants Wolverine and Rogue as they are brought into a conflict between two groups that have radically different approaches to bringing about the acceptance of mutant-kind: Charles Xavier's X-Men, and the Brotherhood of Mutants, led by Magneto.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/81/X-MenfilmPoster.jpg",
+        "thumbnail_width": 248,
+        "thumbnail_height": 368
+      },
+      {
+        "title": "X2: X-Men United",
+        "year": 2003,
+        "cast": [
+          "Hugh Jackman",
+          "Patrick Stewart",
+          "Ian McKellen",
+          "Famke Janssen",
+          "Halle Berry",
+          "Anna Paquin"
+        ],
+        "genres": [
+          "Superhero"
+        ],
+        "href": "X2_(film)",
+        "extract": "X2 is a 2003 American superhero film directed by Bryan Singer and written by Michael Dougherty, Dan Harris and David Hayter, from a story by Singer, Hayter and Zak Penn. The film is based on the X-Men superhero team appearing in Marvel Comics. It is the sequel to X-Men (2000), as well as the second installment in the X-Men film series, and features an ensemble cast including Patrick Stewart, Hugh Jackman, Ian McKellen, Halle Berry, Famke Janssen, James Marsden, Rebecca Romijn-Stamos, Brian Cox, Alan Cumming, Bruce Davison, Shawn Ashmore, Aaron Stanford, Kelly Hu, and Anna Paquin. Its plot, inspired by the graphic novel God Loves, Man Kills, concerns the genocidal Colonel William Stryker leading an assault on Professor Xavier's school to build his own version of Xavier's mutant-tracking computer Cerebro, in order to destroy every mutant on Earth and to save the human race from them, forcing the X-Men to team up with the Brotherhood of Mutants, their former enemies, to stop Stryker and save the mutant race.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/3e/X2_poster.jpg",
+        "thumbnail_width": 260,
+        "thumbnail_height": 384
+      },
+      {
+        "title": "Terminator: Dark Fate",
+        "year": 2019,
+        "cast": [
+          "Linda Hamilton",
+          "Arnold Schwarzenegger",
+          "Mackenzie Davis",
+          "Natalia Reyes",
+          "Gabriel Luna",
+          "Diego Boneta"
+        ],
+        "genres": [
+          "Action",
+          "Science Fiction"
+        ],
+        "href": "Terminator:_Dark_Fate",
+        "extract": "Terminator: Dark Fate is a 2019 American science fiction action film directed by Tim Miller and written by David Goyer, Justin Rhodes and Billy Ray from a story by James Cameron, Charles Eglee, Josh Friedman, Goyer and Rhodes. Cameron also produced the film with David Ellison. It is the sixth installment in the Terminator franchise and a direct sequel to Terminator 2: Judgment Day (1991), ignoring the events of Terminator 3: Rise of the Machines (2003), Terminator Salvation (2009) and Terminator Genisys (2015), following the return of creative control to Cameron.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/5/5f/Terminator_Dark_Fate_poster.jpg",
+        "thumbnail_width": 253,
+        "thumbnail_height": 395
+      },
+      {
+        "title": "The Matrix Resurrections",
+        "year": 2021,
+        "cast": [
+          "Keanu Reeves",
+          "Carrie-Anne Moss",
+          "Yahya Abdul-Mateen II",
+          "Jessica Henwick",
+          "Jonathan Groff",
+          "Neil Patrick Harris",
+          "Priyanka Chopra Jonas",
+          "Jada Pinkett-Smith"
+        ],
+        "genres": [
+          "Action",
+          "Science Fiction"
+        ],
+        "href": "The_Matrix_Resurrections",
+        "extract": "The Matrix Resurrections is a 2021 American science fiction action film produced, co-written, and directed by Lana Wachowski, and being the first in Matrix franchise to be directed solely by Lana, without her sister, Lilly. It is the sequel to The Matrix Revolutions (2003) and the fourth installment in The Matrix film franchise. The film stars Keanu Reeves, Carrie-Anne Moss, Yahya Abdul-Mateen II, Jessica Henwick, Jonathan Groff, Neil Patrick Harris, Priyanka Chopra Jonas, Christina Ricci, and Jada Pinkett Smith. The film is set sixty years after Revolutions and follows Neo, who lives a seemingly ordinary life as a video game developer having trouble with distinguishing fantasy from reality. A group of rebels, with the help of a programmed version of Morpheus, free Neo from a new version of the Matrix and fight a new enemy that holds Trinity captive.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/5/50/The_Matrix_Resurrections.jpg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 384
       }
 ]
