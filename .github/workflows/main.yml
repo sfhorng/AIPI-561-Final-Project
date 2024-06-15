@@ -1,7 +1,7 @@
-name: Build and Deploy
+name: Build
 on: [workflow_dispatch]
 jobs:
-  build:
+  install_format_test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
