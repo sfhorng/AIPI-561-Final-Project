@@ -13,13 +13,32 @@ from llama_index.core import (
 VECTOR_STORE_DIR = "vector_store"
 
 
-def retrieve_documents():
-    """Create Document objects from dataset and write
-    the represented titles from each decade to disk.
+def retrieve_documents_from_file(filename):
+    """Create Document objects for movies from file.
     Resource: https://docs.llamaindex.ai/en/stable/module_guides/loading/documents_and_nodes/usage_documents/
     Note:
     - We can't use SimpleDirectoryReader because it doesn't support JSON.
     - This will only need to be run if you want to create your own index.
+    """
+    documents = []
+    with open(file=filename, encoding="utf-8", mode="r") as f:
+        movies_list = json.load(f)
+        print(f"There are {len(movies_list)} movies from {filename}")
+        for movie_dict in movies_list:
+            # extract provides the summary, cast/crew, and/or history
+            if "extract" in movie_dict:
+                details = movie_dict["extract"]
+                title = movie_dict["title"]
+                # Index on the title of the movie
+                document = Document(text=details, metadata={"title": title})
+                documents.append(document)
+    return documents
+
+
+def retrieve_documents():
+    """Aggregate Document objects across all data files and write
+    the represented titles from each decade to disk.
+    Note: This will only need to be run if you want to create your own index.
     """
     # From dataset titles
     decade_str_list = [
@@ -45,43 +64,25 @@ def retrieve_documents():
     for decade_str in decade_str_list:
         # Track Document objects for movies in the current decade
         # This is tracked in case sampling is needed to manage vector store size
-        decade_documents = []
-        with open(
-            file=f"data/movies-{decade_str}.json", encoding="utf-8", mode="r"
-        ) as f:
-            decade_movies_list = json.load(f)
-            print(
-                f"There are {len(decade_movies_list)} movies from the JSON file for {decade_str}"
-            )
-            for movie_dict in decade_movies_list:
-                # extract provides the summary, cast/crew, and/or history
-                if "extract" in movie_dict:
-                    details = movie_dict["extract"]
-                    title = movie_dict["title"]
-                    # Index on the title of the movie
-                    document = Document(text=details, metadata={"title": title})
-                    decade_documents.append(document)
-            # Determine if sampling is needed
-            num_decade_docs = len(decade_documents)
-            print(f"There are {num_decade_docs} documents created for the {decade_str}")
-            if num_decade_docs < max_num_docs_decade:
-                sampled_decade_docs = decade_documents
-                print(f"Keeping all {num_decade_docs} documents for {decade_str}")
-            else:
-                # To keep the amount of memory used to
-                #   a more manageable amount
-                sampled_decade_docs = random.sample(
-                    decade_documents, max_num_docs_decade
-                )
-                print(f"Sampling {max_num_docs_decade} documents from {decade_str}")
-            # Aggregate sampled Document objects
-            documents.extend(sampled_decade_docs)
-            # Track represented titles with Document objects
-            # This is used to write by decade to file for testing
-            decade_titles_with_docs = [
-                doc.metadata["title"] for doc in sampled_decade_docs
-            ]
-            titles_with_docs[decade_str] = decade_titles_with_docs
+        filename_decade = f"data/movies-{decade_str}.json"
+        decade_documents = retrieve_documents_from_file(filename_decade)
+        # Determine if sampling is needed
+        num_decade_docs = len(decade_documents)
+        print(f"There are {num_decade_docs} documents created for the {decade_str}")
+        if num_decade_docs < max_num_docs_decade:
+            sampled_decade_docs = decade_documents
+            print(f"Keeping all {num_decade_docs} documents for {decade_str}")
+        else:
+            # To keep the amount of memory used to
+            #   a more manageable amount
+            sampled_decade_docs = random.sample(decade_documents, max_num_docs_decade)
+            print(f"Sampling {max_num_docs_decade} documents from {decade_str}")
+        # Aggregate sampled Document objects
+        documents.extend(sampled_decade_docs)
+        # Track represented titles with Document objects
+        # This is used to write by decade to file for testing
+        decade_titles_with_docs = [doc.metadata["title"] for doc in sampled_decade_docs]
+        titles_with_docs[decade_str] = decade_titles_with_docs
 
     # Serializing JSON
     json_object = json.dumps(titles_with_docs, indent=4)

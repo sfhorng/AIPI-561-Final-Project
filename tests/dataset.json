@@ -1,0 +1,47 @@
+[
+    {
+        "title": "The Kleptomaniac",
+        "year": 1905,
+        "cast": [],
+        "genres": [
+          "Drama",
+          "Silent"
+        ],
+        "href": "The_Kleptomaniac",
+        "extract": "The Kleptomaniac, is a 1905 American silent drama film, directed by Edwin S. Porter partly filmed on location in New-York denouncing the discriminatory treatment of the poor by the justice system. It is one of the first American social drama and Courtroom drama.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/The_Kleptomaniac_%281905%29_screenshot_2.jpg/320px-The_Kleptomaniac_%281905%29_screenshot_2.jpg",
+        "thumbnail_width": 320,
+        "thumbnail_height": 240
+    },
+    {
+        "title": "Antony and Cleopatra",
+        "year": 1908,
+        "cast": [
+          "Florence Lawrence",
+          "William V. Ranous"
+        ],
+        "genres": [],
+        "href": "Antony_and_Cleopatra_(1908_film)",
+        "extract": "Antony and Cleopatra is a 1908 film directed by J. Stuart Blackton and Charles Kent and starring Maurice Costello and Florence Lawrence in the title roles, based on William Shakespeare's play of the same name. It was the first film to dramatize the ill-fated romance between Mark Antony and Cleopatra VII of Egypt.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Antony_and_Cleopatra_cast_1908.jpg/320px-Antony_and_Cleopatra_cast_1908.jpg",
+        "thumbnail_width": 320,
+        "thumbnail_height": 221
+      },
+      {
+        "title": "The Lost Battalion",
+        "year": 1919,
+        "cast": [
+          "Helen Ferguson",
+          "Gaston Glass"
+        ],
+        "genres": [
+          "War",
+          "Silent"
+        ],
+        "href": "The_Lost_Battalion_(1919_film)",
+        "extract": "The Lost Battalion is a 1919 American silent war film about units of the 77th Infantry Division penetrating deep into the Argonne Forest of France during World War I. The film was directed by Burton L. King and features Major Charles W. Whittlesey and a number of actual soldiers from the 77th who portrayed themselves in the film. It was released July 2, 1919 in North America. The film was remade in 2001 by Russell Mulcahy.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/The-Lost-Battalion-1919-cover.jpg/320px-The-Lost-Battalion-1919-cover.jpg",
+        "thumbnail_width": 320,
+        "thumbnail_height": 290
+      }
+]

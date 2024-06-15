@@ -48,7 +48,7 @@ def load():
     Settings.llm = llm
     Settings.embed_model = embed_model
 
-    ### Please uncomment this and comment out line 54
+    ### Please uncomment this and comment out load_index(embed_model)
     # if you would like to create your own index
     # index = create_index(embed_model)
 
