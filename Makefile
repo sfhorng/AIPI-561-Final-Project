@@ -26,7 +26,9 @@ build:
 	docker build -t st_movie_chatbot .
 
 # Start container from created image
-# Mount Llamafile to app directory in container
+# Mount Llamafile and vector store to app directory in container
 # Absolute local path is needed for mounting files
 start_container:
-	docker run -v $(PWD)/TinyLlama-1.1B-Chat-v1.0.F16.llamafile:/app/TinyLlama-1.1B-Chat-v1.0.F16.llamafile -p 8501:8501 st_movie_chatbot
+	docker run -v $(PWD)/TinyLlama-1.1B-Chat-v1.0.F16.llamafile:/app/TinyLlama-1.1B-Chat-v1.0.F16.llamafile \
+	-v $(PWD)/vector_store:/app/vector_store \
+	-p 8501:8501 st_movie_chatbot

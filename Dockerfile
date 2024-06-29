@@ -14,9 +14,8 @@ RUN pip install -r requirements.txt
 # Install vim to inspect files in container
 RUN apt-get update && apt-get install vim -y
 
-# Install app logic and vector store
+# Install app logic
 COPY src/* /app
-COPY vector_store /app/vector_store
 
 # Streamlit apps use port 8501 by default
 EXPOSE 8501
