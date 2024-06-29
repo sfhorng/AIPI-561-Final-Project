@@ -11,8 +11,6 @@ WORKDIR /app
 # Environment setup
 # Requirements for running the app
 RUN pip install -r requirements.txt
-# Install vim to inspect files in container
-RUN apt-get update && apt-get install vim -y
 
 # Install app logic
 COPY src/* /app
