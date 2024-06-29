@@ -11,7 +11,7 @@ lint:
 test:
 	python -m pytest -vv -s --cov=src/movie_chatbot tests
 
-all: install lint format test
+setup_all: install lint format test
 
 # Without Docker 
 run_app:
