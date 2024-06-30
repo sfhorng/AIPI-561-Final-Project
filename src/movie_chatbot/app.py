@@ -2,7 +2,6 @@
 The implementation is largely based off of
 https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps"""
 
-import subprocess
 import streamlit as st
 from llama_index.llms.llamafile import Llamafile
 from llama_index.embeddings.huggingface import (
@@ -40,10 +39,12 @@ def load():
     - Using Settings: https://docs.llamaindex.ai/en/stable/module_guides/supporting_modules/service_context_migration/
     - Chat engine with context mode: https://docs.llamaindex.ai/en/stable/examples/chat_engine/chat_engine_context/
     """
-    # Start llamafile
-    subprocess.Popen(["sh", "./TinyLlama-1.1B-Chat-v1.0.F16.llamafile"])
     # Specify LLM and embedding model in Settings
-    llm = Llamafile(additional_kwargs={"n_predict": 100})
+    # Connect from container to locally running Llamafile
+    llm = Llamafile(
+        additional_kwargs={"n_predict": 100},
+        base_url="http://host.docker.internal:8080",
+    )
     embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
     Settings.llm = llm
     Settings.embed_model = embed_model
