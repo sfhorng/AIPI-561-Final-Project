@@ -1,28 +1,31 @@
 name: Set Up, Build, and Push
-on: [workflow_dispatch]
+on: 
+  push:
+    branches:
+      - main
 jobs:
-  # install_test_format:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Set up Python 3.9
-  #     uses: actions/setup-python@v1
-  #     with:
-  #       python-version: 3.9
-  #   - name: Install dependencies
-  #     run: |
-  #       make install
-  #   - name: Lint with Pylint
-  #     run: |
-  #       make lint
-  #   - name: Test with Pytest
-  #     run: |
-  #       make test
-  #   - name: Format code with Python black
-  #     run: |
-  #       make format
+  install_test_format:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        make install
+    - name: Lint with Pylint
+      run: |
+        make lint
+    - name: Test with Pytest
+      run: |
+        make test
+    - name: Format code with Python black
+      run: |
+        make format
   build_and_push:
-    #needs: install_test_format # Only run if previous job is successful
+    needs: install_test_format # Only run if previous job is successful
     runs-on: ubuntu-latest
     steps:
       # Checks out repo under $GITHUB_WORKSPACE so job can access it
