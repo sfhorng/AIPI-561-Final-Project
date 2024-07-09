@@ -5,6 +5,7 @@ on:
       - main
     paths-ignore:
       - README.md
+  workflow_dispatch:
 
 jobs:
   install_test_format:
@@ -56,4 +57,5 @@ jobs:
           provenance: false
           tags: ghcr.io/${{ env.REPO }}:${{ github.sha }}
           file: ./Dockerfile
-
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

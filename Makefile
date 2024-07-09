@@ -18,7 +18,7 @@ start_model:
 
 # Create image with latest build tag
 build_local:
-	docker build -t st_movie_chatbot_test_test .
+	docker build -t st_movie_chatbot .
 
 # Start container from created image
 # Mount vector store to app directory in container
@@ -27,5 +27,5 @@ build_local:
 start_container_local:
 	docker run --add-host=host.docker.internal:host-gateway \
 	-v $(PWD)/vector_store:/app/vector_store \
-	-p 8501:8501 st_movie_chatbot_test_test
+	-p 8501:8501 st_movie_chatbot
 
