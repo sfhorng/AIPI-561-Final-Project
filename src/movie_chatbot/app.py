@@ -17,7 +17,7 @@ def initialize():
     """Initialize UI, including any recent messages,
     during startup or reload.
     """
-    st.title("Movie Chatbot")
+    st.title("American Movies Chatbot")
 
     # Initialize chat history
     if "messages" not in st.session_state:
