@@ -6,7 +6,16 @@ AIPI 561
 Link to demo video:
 
 ## Purpose
-The Streamlit application serves as a chatbot that focuses on providing information about <ins>select</ins> American movies across all decades starting from the 1900s. It retrieves output from a [Llamafile](https://github.com/Mozilla-Ocho/llamafile), TinyLlama, so it can be run locally from your personal machine. This Small Language Model is enriched with [scraped movie details from Wikipedia](https://github.com/prust/wikipedia-movie-data) from the local information vector_store file, including release year, genre, main cast and crew, and plot summary. 
+The Streamlit application serves as a chatbot that focuses on providing information about <ins>select</ins> American movies across all decades starting from the 1900s. It retrieves output from a [Llamafile](https://github.com/Mozilla-Ocho/llamafile), TinyLlama, so it can be run locally from your personal machine. This Small Language Model is enriched with [scraped movie details](https://github.com/prust/wikipedia-movie-data)  from the wikipedia-movie-data repo that has been loaded into a local information vector_store file. The information includes release year, genre, main cast and crew, and plot summary. The application uses the [LlamaIndex framework](https://docs.llamaindex.ai/en/stable/) to connect to the Llamafile, do the retrieval for relevant context for the query, and retrieve the final output from the Llamafile.
+
+## Architecture Diagram
+For some background, the following are the steps used to create the vector store, or index. This is a one-time step that has already been completed, so you would be able to use this output in step 3 of the "Setting up" section below. The vector store will be loaded into memory upon app startup.
+
+![Index creation sequence](https://github.com/user-attachments/assets/2a570bd0-92e7-44d0-8348-e04191ed0d3f)
+
+The following are the steps taken to retrieve the response for a given prompt after app startup.
+
+![Main architecture diagram](https://github.com/user-attachments/assets/90e80a5c-5b30-42b8-be14-0bd798d901d6)
 
 ## Setting up
 1. Install [Docker](https://www.docker.com/products/docker-desktop/) if you haven't already.
