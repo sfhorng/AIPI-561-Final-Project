@@ -3,6 +3,8 @@
 
 AIPI 561
 
+Link to demo video:
+
 ## Purpose
 The Streamlit application serves as a chatbot that focuses on providing information about <ins>select</ins> American movies across all decades starting from the 1900s. It retrieves output from a [Llamafile](https://github.com/Mozilla-Ocho/llamafile), TinyLlama, so it can be run locally from your personal machine. This Small Language Model is enriched with [scraped movie details from Wikipedia](https://github.com/prust/wikipedia-movie-data) from the local information vector_store file, including release year, genre, main cast and crew, and plot summary. 
 
@@ -13,9 +15,19 @@ The Streamlit application serves as a chatbot that focuses on providing informat
 4. Download the TinyLlama-1.1B file from https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#other-example-llamafiles. Please move the file into the repository folder.
 5. Run ```chmod +x TinyLlama-1.1B-Chat-v1.0.F16.llamafile```
 
+## Testing the app
+The following are steps to test the app in your local environment, as there is a step in the workflow that will run the tests before building the image.
+1. Create a virtual environment with ```python3 -m venv .venv```
+2. Activate the virtual environment with ```source .venv/bin/activate```
+3. Run ```make test``` to run the unit tests.
+
+![Sample output for unit tests](https://github.com/user-attachments/assets/85fb5cb5-73b3-4516-9133-a97717a1e4b8)
+
 ## Running the app
-1. Start the Llamafile by running ```make start_model```. If you encounter any issues, please refer to the README from step 3 in the section above for more information.
+1. Start the Llamafile by running ```make start_model```. If you encounter any issues, please refer to the README from step 3 in the "Setting up" section above for more information.
 2. In another terminal window, run ```make start_container``` to start the application. It may take a minute to load.
+
+![UI with sample question](https://github.com/user-attachments/assets/177ae17c-4427-4024-b309-4058ed573190)
 3. Start interacting with the application by typing in your query. It may take a moment for the response to start appearing.
 
 While interacting with the application, please keep in mind the following limitation: Depending on which movie is being asked about, there may be some inaccuracies. Details from selected movies will be used by the model to provide the final output. Please refer to ```titles_in_vector_store.json``` for the specific movie titles that are represented. Since the model is probability-based, be sure to fact-check the output. 
@@ -88,3 +100,5 @@ Sure, here are two more movies directed by Stanley Kubrick:
 - Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964)
 
 I hope that helps!
+
+## Performance/evaluation results
