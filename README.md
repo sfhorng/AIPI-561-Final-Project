@@ -1,4 +1,4 @@
-# Chatbot for American Movies
+# Chatbot RAG App for American Movies
 ![Test, build, and push workflow status](https://github.com/sfhorng/AIPI-561-Final-Project/actions/workflows/main.yml/badge.svg?branch=main)
 
 AIPI 561

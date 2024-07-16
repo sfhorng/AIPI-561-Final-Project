@@ -62,6 +62,15 @@ def load():
 def retrieve_from_model(engine, prompt):
     """Stream response from model.
     Resource: https://docs.llamaindex.ai/en/stable/examples/chat_engine/chat_engine_context/
+
+    Args:
+        engine (BaseChatEngine): Chat engine interface
+            created with vector store that is used
+            to query Llamafile's completions endpoint
+        prompt (str): User input prompt to generate response for.
+
+    Yields:
+        token (str): Output chunk from Llamafile to output to UI
     """
     response = engine.stream_chat(prompt)
     for token in response.response_gen:
@@ -70,7 +79,13 @@ def retrieve_from_model(engine, prompt):
 
 
 def chat(engine):
-    """Display prompts and responses from chat engine."""
+    """Display prompts and responses from chat engine.
+
+    Args:
+        engine (BaseChatEngine): Chat engine interface
+            created with vector store that is used
+            to query Llamafile's completions endpoint
+    """
     # React to user input
     if prompt := st.chat_input("What would you like to know?"):
         # Display user message in chat message container

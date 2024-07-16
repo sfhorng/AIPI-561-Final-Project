@@ -19,6 +19,14 @@ def retrieve_documents_from_file(filename):
     Note:
     - We can't use SimpleDirectoryReader because it doesn't support JSON.
     - This will only need to be run if you want to create your own index.
+
+    Args:
+        filename (str): Name of file that contains movie data
+            to create Documents for
+
+    Returns:
+        documents (List[Documents]): Subset of total documents
+            for movies from the file that will be used to create the index
     """
     documents = []
     with open(file=filename, encoding="utf-8", mode="r") as f:
@@ -97,7 +105,17 @@ def retrieve_documents():
 
 def create_index(embed_model):
     """Create and store index for later use.
+    This should only need to be done once.
     Resource: https://docs.llamaindex.ai/en/stable/module_guides/indexing/vector_store_index/
+
+    Args:
+        embed_model (HuggingFaceEmbedding): Embedding model to use
+            during index creation and retrieval step for user prompt
+
+    Returns:
+        index (VectorStoreIndex): Vector store to save to disk
+            to load upon app startup
+
     """
     # Create documents from data folder
     documents = retrieve_documents()
@@ -116,6 +134,14 @@ def load_index(embed_model):
     Resources:
     - Storage Context: https://docs.llamaindex.ai/en/latest/api_reference/storage/storage_context/
     - Storing and retrieving index: https://docs.llamaindex.ai/en/stable/understanding/storing/storing/
+
+    Args:
+        embed_model (HuggingFaceEmbedding): Embedding model to use
+            during index creation and retrieval step for user prompt
+
+    Returns:
+        index (VectorStoreIndex): Vector store from disk
+            to load upon app startup
     """
     # Rebuild storage context
     storage_context = StorageContext.from_defaults(persist_dir=VECTOR_STORE_DIR)
