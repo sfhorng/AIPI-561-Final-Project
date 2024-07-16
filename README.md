@@ -18,9 +18,9 @@ The following are the steps taken to retrieve the response for a given prompt af
 ![Main architecture diagram](https://github.com/user-attachments/assets/90e80a5c-5b30-42b8-be14-0bd798d901d6)
 
 ## Setting up
-1. Install [Docker](https://www.docker.com/products/docker-desktop/) if you haven't already.
-2. Copy and paste the [command from packages](https://github.com/sfhorng/AIPI-561-Final-Project/pkgs/container/aipi-561-final-project) to pull the Docker image from the GitHub container registry. If you would like to build the image locally instead, please run ```make build_local```.
-3. Clone the repository, cd into it, and unzip vector_store.zip.
+1. Clone the repository, cd into it, and unzip vector_store.zip.
+2. Install [Docker](https://www.docker.com/products/docker-desktop/) if you haven't already.
+3. Copy and paste the [command from packages](https://github.com/sfhorng/AIPI-561-Final-Project/pkgs/container/aipi-561-final-project) into a terminal to pull the Docker image from the GitHub container registry. If you would like to build the image locally instead, please run ```make build_local```.
 4. Download the TinyLlama-1.1B file from https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#other-example-llamafiles. Please move the file into the repository folder.
 5. Run ```chmod +x TinyLlama-1.1B-Chat-v1.0.F16.llamafile```
 
