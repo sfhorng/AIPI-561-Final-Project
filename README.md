@@ -19,7 +19,7 @@ The following are the steps taken to retrieve the response for a given prompt af
 
 ## Setting up
 1. Install [Docker](https://www.docker.com/products/docker-desktop/) if you haven't already.
-2. Copy and paste the [command from packages](https://github.com/sfhorng/AIPI-561-Final-Project/pkgs/container/aipi-561-final-project) to pull the Docker image from the GitHub container registry. 
+2. Copy and paste the [command from packages](https://github.com/sfhorng/AIPI-561-Final-Project/pkgs/container/aipi-561-final-project) to pull the Docker image from the GitHub container registry. If you would like to build the image locally instead, please run ```make build_local```.
 3. Clone the repository, cd into it, and unzip vector_store.zip.
 4. Download the TinyLlama-1.1B file from https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#other-example-llamafiles. Please move the file into the repository folder.
 5. Run ```chmod +x TinyLlama-1.1B-Chat-v1.0.F16.llamafile```
@@ -34,7 +34,7 @@ The following are steps to test the app in your local environment, as there is a
 
 ## Running the app
 1. Start the Llamafile by running ```make start_model```. If you encounter any issues, please refer to the README from step 3 in the "Setting up" section above for more information.
-2. In another terminal window, run ```make start_container``` to start the application. It may take a minute to load.
+2. In another terminal window, run ```make start_container``` to start the application. If you built the image locally, please run ```make start_container_local```. It may take a minute to load.
 
 ![UI with sample question](https://github.com/user-attachments/assets/177ae17c-4427-4024-b309-4058ed573190)
 3. Start interacting with the application by typing in your query. It may take a moment for the response to start appearing.
