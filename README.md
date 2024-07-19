@@ -1,4 +1,4 @@
-# Chatbot RAG App for American Movies
+## Chatbot RAG App for American Movies
 ![Test, build, and push workflow status](https://github.com/sfhorng/AIPI-561-Final-Project/actions/workflows/main.yml/badge.svg?branch=main)
 
 AIPI 561
@@ -110,9 +110,24 @@ Sure, here are two more movies directed by Stanley Kubrick:
 
 I hope that helps!
 
-## Performance/evaluation results
+## Performance/Evaluation 
 
-Movies that are not represented in the vector store
+### Approach
+
+<ins>Metric and Components Evaluated</ins>
+- The metric used for evaluation is accuracy based on implementing RAG. 
+- Since the Wikipedia movies dataset includes a few main components, plot summary, release year, genre, and main cast and crew, the evaluation will be done for each component for a chosen movie. Since the number of cast and crew members listed can vary, for simplicitly, the director has been chosen to represent whether the cast and crew component is accurate.
+- A sample of ten movies with information in the vector store will be evaluated alongside a sample of ten movies that do not have information in the vector store. Please refer to ```titles_in_vector_store.json``` for which titles are represented.
+
+<ins>Title Selection and Criteria for Evaluation</ins>
+- To try to keep other variables that could influence accuracy constant, the movies were chosen arbitrarily but had to be ones that are relatively well-known so that 1) someone who watches American movies of all genre types regularly would likely be familiar with and so that 2) the model would likely have some information on them without an external data source. Whether a movie is "well-known" is also rather subjective, so this is a best estimate effort to evaluate whether the retrieval portion of the chatbot improves accuracy. 
+- The list of movies chosen represents a wide variety of genres.
+- The prompts used were the same across all the chosen movies to retrieve the outputs, substituting only the title name, which is the exact title that is provided in the vector store.
+- If any portion of the plot summary is inaccurate, the plot summary component would be considered inaccurate.
+
+### Results
+
+<ins>Movies that are **not** represented in the vector store</ins>
 | Title  | Plot summary | Release year | Genre | Director |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Singin' in the Rain | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
@@ -126,7 +141,7 @@ Movies that are not represented in the vector store
 | A Walk to Remember | :x: | :white_check_mark: | :white_check_mark: | :x: |
 | Back to the Future | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
-Movies that are represented in the vector store
+<ins>Movies that **are** represented in the vector store</ins>
 | Title  | Plot summary | Release year | Genre | Director |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Folklore: The Long Pond Studio Sessions | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
@@ -139,3 +154,15 @@ Movies that are represented in the vector store
 | Toy Story 2 | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | The Princess Diaries | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | The Terminator | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+
+### Summary and Discussion
+The following summarizes the above tables and includes the fraction of titles that had accurate information for each component evaluated.
+
+| Represented in vector store? | Plot summary | Release year | Genre | Director |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| No | 6/10 | 10/10 | 10/10 | 9/10 |
+| Yes | 9/10| 10/10 | 10/10 | 10/10 |
+
+Although the results only include a small set of movies and the results can vary depending on the titles chosen, this evaluation suggests that the RAG implementation increases the likelihood that information about a movie, especially its plot summary, will be accurate. 
+
+As you may have guessed, it is less likely for the model to provide a completely accurate plot summary due to the amount of information available on a movie, while it is more likely for the other components to have accurate responses because there is only one correct answer (or only a handful of correct answers for the genre).
