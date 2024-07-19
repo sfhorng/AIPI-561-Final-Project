@@ -111,3 +111,31 @@ Sure, here are two more movies directed by Stanley Kubrick:
 I hope that helps!
 
 ## Performance/evaluation results
+
+Movies that are not represented in the vector store
+| Title  | Plot summary | Release year | Genre | Director |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Singin' in the Rain | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| The Conjuring | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| The Hangover | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Clueless | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Ford v Ferrari | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Doctor Strange | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Rush Hour 2 | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Monsters University | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| A Walk to Remember | :x: | :white_check_mark: | :white_check_mark: | :x: |
+| Back to the Future | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+
+Movies that are represented in the vector store
+| Title  | Plot summary | Release year | Genre | Director |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Folklore: The Long Pond Studio Sessions | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Oculus | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Lady Bird | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Knives Out | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Memento | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| The Amazing Spider-Man | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Rush Hour | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Toy Story 2 | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| The Princess Diaries | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| The Terminator | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
