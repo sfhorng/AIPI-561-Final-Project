@@ -48,7 +48,6 @@ jobs:
       # Format of GITHUB_REPOSITORY: username/repo name
       - name: Lowercase the repo name and username
         run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-      # Uses commit hash for the image tag
       - name: Build and push container image to registry
         uses: docker/build-push-action@v6
         with:
