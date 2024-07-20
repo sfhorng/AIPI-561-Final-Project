@@ -3,7 +3,7 @@
 
 AIPI 561
 
-Link to demo video:
+[Demo video](https://duke.box.com/s/ffesfyffv021zrpd95ekl35hhvu49nn1)
 
 ## Purpose
 The Streamlit application serves as a chatbot that focuses on providing information about <ins>select</ins> American movies across all decades starting from the 1900s. It retrieves output from a [Llamafile](https://github.com/Mozilla-Ocho/llamafile), TinyLlama, so it can be run locally from your personal machine. This Small Language Model is enriched with [scraped movie details](https://github.com/prust/wikipedia-movie-data)  from the wikipedia-movie-data repo that has been loaded into a local information vector_store file. The information includes release year, genre, main cast and crew, and plot summary. The application uses the [LlamaIndex framework](https://docs.llamaindex.ai/en/stable/) to connect to the Llamafile, do the retrieval for relevant context for the query, and retrieve the final output from the Llamafile.
@@ -116,8 +116,8 @@ I hope that helps!
 
 <ins>Metric and Components Evaluated</ins>
 - The metric used for evaluation is accuracy based on implementing RAG. 
-- Since the Wikipedia movies dataset includes a few main components, plot summary, release year, genre, and main cast and crew, the evaluation will be done for each component for a chosen movie. Since the number of cast and crew members listed can vary, for simplicitly, the director has been chosen to represent whether the cast and crew component is accurate.
-- A sample of ten movies with information in the vector store will be evaluated alongside a sample of ten movies that do not have information in the vector store. Please refer to ```titles_in_vector_store.json``` for which titles are represented.
+- Since the Wikipedia movies dataset includes a few main components, plot summary, release year, genre, and main cast and crew, the evaluation will be on each of these component for a chosen movie. Since the number of cast and crew members listed can vary, for simplicitly, the director has been chosen to represent whether the cast and crew component is accurate.
+- A sample of ten movies with information in the vector store will be evaluated alongside a sample of ten movies that do not have information in the vector store. Please refer to ```titles_in_vector_store.json``` for which titles are represented. Due to the number of titles, the evaluation cannot be comprehensive, so the goal is to provide a quick snapshot of whether implementing RAG tends to improves accuracy. The output from the model may vary for the plot summary, so the accuracy results will be based on the output from the evaluation.
 
 <ins>Title Selection and Criteria for Evaluation</ins>
 - To try to keep other variables that could influence accuracy constant, the movies were chosen arbitrarily but had to be ones that are relatively well-known so that 1) someone who watches American movies of all genre types regularly would likely be familiar with and so that 2) the model would likely have some information on them without an external data source. Whether a movie is "well-known" is also rather subjective, so this is a best estimate effort to evaluate whether the retrieval portion of the chatbot improves accuracy. 
