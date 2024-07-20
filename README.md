@@ -6,7 +6,7 @@ AIPI 561
 [Demo video](https://duke.box.com/s/ffesfyffv021zrpd95ekl35hhvu49nn1)
 
 ## Purpose
-The Streamlit application serves as a chatbot that focuses on providing information about <ins>select</ins> American movies across all decades starting from the 1900s. It retrieves output from a [Llamafile](https://github.com/Mozilla-Ocho/llamafile), TinyLlama, so it can be run locally from your personal machine. This Small Language Model is enriched with [scraped movie details](https://github.com/prust/wikipedia-movie-data)  from the wikipedia-movie-data repo that has been loaded into a local information vector_store file. The information includes release year, genre, main cast and crew, and plot summary. The application uses the [LlamaIndex framework](https://docs.llamaindex.ai/en/stable/) to connect to the Llamafile, do the retrieval for relevant context for the query, and retrieve the final output from the Llamafile.
+The Streamlit application serves as a chatbot that focuses on providing information about <ins>select</ins> American movies across all decades starting from the 1900s. It retrieves output from a [Llamafile](https://github.com/Mozilla-Ocho/llamafile), TinyLlama, so it can be run locally from your personal machine. This Small Language Model is enriched with [scraped movie details](https://github.com/prust/wikipedia-movie-data)  from the wikipedia-movie-data repo that has been loaded into a local information vector_store file. The information includes release year, genre, main cast and crew, and plot summary. The application uses the [LlamaIndex framework](https://docs.llamaindex.ai/en/stable/) to connect to the Llamafile, retrieve the relevant context for the query, and retrieve the final output from the Llamafile.
 
 ## Architecture Diagram
 For some background, the following are the steps used to create the vector store, or index. This is a one-time step that has already been completed, so you would be able to use this output in step 3 of the "Setting up" section below. The vector store will be loaded into memory upon app startup.
@@ -25,7 +25,7 @@ The following are the steps taken to retrieve the response for a given prompt af
 5. Run ```chmod +x TinyLlama-1.1B-Chat-v1.0.F16.llamafile```
 
 ## Testing the app
-The following are steps to test the app in your local environment, as there is a step in the workflow that will run the tests before building the image.
+The following are steps to test the app in your local environment, as there is a step in the workflow that will run the tests before building the image. Please note that this is not needed to run the app.
 1. Create a virtual environment with ```python3 -m venv .venv```
 2. Activate the virtual environment with ```source .venv/bin/activate```
 3. Run ```make test``` to run the unit tests.
